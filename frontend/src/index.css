@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F4F6FB] text-slate-900;
+  }
+}
+
+/* Smooth transitions */
+button, a {
+  @apply transition-all duration-150;
+}
+
+/* Pulse radar ring for camera face detection */
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.radar-ring {
+  animation: radar-pulse 2s infinite ease-in-out;
+}

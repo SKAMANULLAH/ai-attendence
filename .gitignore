@@ -1,0 +1,20 @@
+# Node dependencies & builds
+node_modules/
+dist/
+build/
+.env.local
+
+# Python virtual environment & cache
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local Environment Variables (Keep secrets off GitHub)
+backend/.env
+
+# System files
+.DS_Store
+Thumbs.db
