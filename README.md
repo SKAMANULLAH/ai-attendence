@@ -31,28 +31,29 @@ Domain: **[snap-ai.online](https://snap-ai.online)** | API: **[api.snap-ai.onlin
 
 ```
 Attendence Project/
-├── backend/                        # FastAPI Python API Server
+├── backend/                        # FastAPI Python API Server & Biometrics
 │   ├── server.py                   # REST endpoints, biometrics & Supabase integration
 │   ├── config.py                   # Environment, Cloudinary & Supabase initialization
 │   ├── requirements.txt            # Python dependencies
 │   ├── .env                        # Pre-configured credentials (local & EC2)
 │   ├── ecosystem.config.js         # PM2 configuration for AWS EC2
 │   ├── nginx-snap-ai.conf          # Nginx virtual host config for snap-ai.online
-│   └── Dockerfile                  # Production container image
+│   ├── Dockerfile                  # Production container image
+│   └── src/                        # Computer Vision, Voice Biometrics & Database modules
+│       ├── database/               # Supabase CRUD layer (db.py, config.py)
+│       └── pipelines/              # Face (dlib/SVM) and Voice (Resemblyzer/VAD) pipelines
 │
-├── frontend/                       # React (Vite + Tailwind CSS) Web App
-│   ├── src/
-│   │   ├── components/             # CameraCapture, AudioRecorder, QRModal, SubjectCard
-│   │   ├── pages/                  # HomePage, TeacherDashboard, StudentPortal, TeacherAuthPage
-│   │   ├── api/client.js           # API client for FastAPI
-│   │   └── context/AuthContext.jsx # Session persistence
-│   ├── .env                        # Local API URL (http://localhost:8000)
-│   ├── .env.production             # EC2 API URL (https://api.snap-ai.online)
-│   └── package.json
-│
-├── ai-attendance-project-app/      # Core ML pipelines (dlib, resemblyzer, db)
-└── ai-attendance-project-landing/  # Original Flask landing page
+└── frontend/                       # React (Vite + Tailwind CSS) Web App
+    ├── src/
+    │   ├── components/             # CameraCapture, AudioRecorder, QRModal, SubjectCard
+    │   ├── pages/                  # HomePage, TeacherDashboard, StudentPortal, TeacherAuthPage
+    │   ├── api/client.js           # API client for FastAPI
+    │   └── context/AuthContext.jsx # Session persistence
+    ├── .env                        # Local API URL (http://localhost:8000)
+    ├── .env.production             # EC2 API URL (https://api.snap-ai.online)
+    └── package.json
 ```
+
 
 ---
 

@@ -5,12 +5,11 @@ import time
 from datetime import datetime
 from typing import List, Optional
 
-# Add ai-attendance-project-app to Python path for seamless module imports
+# Add backend directory to Python path so 'from src....' imports work cleanly
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_dir, ".."))
-app_src_dir = os.path.join(project_root, "ai-attendance-project-app")
-if app_src_dir not in sys.path:
-    sys.path.insert(0, app_src_dir)
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware

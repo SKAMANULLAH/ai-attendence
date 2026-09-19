@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
 
 # Copy backend source code and AI pipelines
 COPY backend/ ./backend/
-COPY ai-attendance-project-app/ ./ai-attendance-project-app/
+
 
 ENV PORT=8000
 EXPOSE 8000
